@@ -55,7 +55,7 @@ class ServiceHistory:
             print(f"Service History for {car['make']} {car['model']} (ID: {car_id}):")
             for service_entry in car['service_history']:
                 print(f"Service Date: {service_entry['service_date']}, Service Provider: {service_entry['service_provider']}")
-                print(f"Description: {service_entry['description']}, Cost: {service_entry['cost']} EUR")
+                print(f"Description: {service_entry['description']}, Cost: {service_entry['cost']:.2f} EUR")
                 print()
         else:
             print(f"Car with ID {car_id} not found or no service history recorded.")
