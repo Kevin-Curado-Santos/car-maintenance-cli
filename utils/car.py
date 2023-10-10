@@ -16,7 +16,7 @@ class Car:
         with open(self.data_file, 'w') as file:
             json.dump(self.cars, file, indent=4, sort_keys=True, default=str)
 
-    def add_car(self, make, model, year, vin, purchase_date):
+    def add_car(self, make, model, year, vin):
         car_id = len(self.cars) + 1
         car = {
             'id': car_id,
@@ -24,7 +24,6 @@ class Car:
             'model': model,
             'year': year,
             'vin': vin,
-            'purchase_date': purchase_date
         }
         self.cars.append(car)
         self.save_data()

@@ -4,7 +4,7 @@ class InsuranceManager:
     def __init__(self, car_manager):
         self.car_manager = car_manager
 
-    def add_insurance(self, car_id, policy_number, provider, start_date, end_date, premium_amount):
+    def add_insurance(self, car_id, policy_number, provider, premium_amount):
         """
         Add insurance details for a specific car.
         Args:
@@ -19,16 +19,8 @@ class InsuranceManager:
             bool: True if adding insurance details is successful, False otherwise.
         """
         
-        try:
-            start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d').date()
-            end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d').date()
-        except ValueError:
-            print("Invalid date format. Please use YYYY-MM-DD.")
-            return False
-        
-        if start_date > end_date:
-            print("Start date cannot be later than end date.")
-            return False
+        start_date = datetime.date.today().strftime("%Y-%m-%d")
+        end_date = (datetime.date.today() + datetime.timedelta(days=365)).strftime("%Y-%m-%d")
         
         car = self.car_manager.get_car(car_id)
         if car:
