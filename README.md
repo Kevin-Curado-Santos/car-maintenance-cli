@@ -1,1 +1,1 @@
-# car-maintenance-cli
+# Car Maintenance CLI Assistant
